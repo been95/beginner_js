@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할인율 계산기</title>
+    <style>
+        body{
+        text-align: center;
+        }
+        div{margin-bottom: 8px; font-size: 18px;}
+        input{display: block; margin: auto; margin-top: 20px; height: 40px; width: 300px;}
+        button{width:40px; height:40px; margin-bottom: 20px; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <div>판매 가격 : </div>
+    <input type="text" id="oprice">
+    <br>
+    <div>할인율 : </div>
+    <input type="text"  id="rate">
+
+    <button onclick="ShowPrice()">계산</button>
+    <div id="showResult"></div>산</button>
+    <div id="showResult"></div>
+
+    <script>
+        function ShowPrice() {
+            var originPrice = document.querySelector("#oPrice").value;
+            var rate = document.querySelector("#rate").value;
+            var savePrice = originPrice *(rate / 100);
+            var resultPrice = originPrice - savePrice;
+            document.querySelector("#showResult").innerHTML = "상품의 원래 가격은 " +originPrice+"원이고, 할인율은 " +rate+
+            "%입니다. "+savePrice+"원을 절약한" +resultPrice+ "원에 살 수 있습니다";
+
+        }
+    </script>
+</body>
+</html>
