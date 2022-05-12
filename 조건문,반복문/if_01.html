@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>3의 배수인지 확인</title>
-</head>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3의 배수인지 확인</title>
+  </head>
+  <style>
     #result {
-	width:500px;
-	height:100px;
-	margin: 50px auto;
-	padding:10px;
-	border:1px solid #ccc;
-	font-size:1.4em;
-	line-height:100px;
-	text-align:center;
-}
-</style>
-<body>
-	<div id="result"></div>
-	
-	<script>
-		var userNumber = prompt("숫자를 입력해주세요");
-		var displayArea =	document.querySelector('#result');
-		
-		if(userNumber != null) {  // 취소버튼을 클릭 안 했으면
-		if (userNumber % 3 === 0) {
-			displayArea.innerHTML = userNumber + "은 3의 배수입니다.";
-		}				
-		else {
-			displayArea.innerHTML = userNumber + "은 3의 배수가 아닙니다.";	
-		}						
-	}
-	else { // 취소버튼을 누르면
-	alert("입력이 취소됐습니다.");  
-}
-</script>
-</body>
+      width: 500px;
+      height: 100px;
+      margin: 50px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 1.4em;
+      line-height: 100px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div id="result"></div>
+
+    <script>
+      var userNumber = prompt("숫자를 입력해주세요");
+      // let test = confirm("Are you finished?");
+      var displayArea = document.querySelector("#result");
+      /*
+      console.log(test);
+      if (test) {
+        console.log("OK");
+      } else {
+        console.log("You are not finished");
+      }
+			*/
+
+      if (userNumber != null) {
+        // 취소버튼을 클릭 안 했으면
+        if (userNumber % 3 === 0 && userNumber % 5 === 0) {
+          displayArea.innerHTML = userNumber + "은 3과 5의 공통배수입니다..";
+        } else {
+          displayArea.innerHTML = userNumber + "은 3의 5의 공통배수가 아닙니다.";
+        }
+      } else {
+        // 취소버튼을 누르면
+        alert("입력이 취소됐습니다.");
+      }
+    </script>
+  </body>
 </html>

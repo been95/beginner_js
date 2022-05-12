@@ -5,13 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
+    <style>
+      .wrap {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+      }
+      .result {
+        color: red;
+        font-size: 30px;
+      }
+      input {
+        width: 50px;
+        border: 1px solid #e8e8e8;
+        margin: 0 20px;
+      }
+
+      input + span {
+        align-self: center;
+      }
+
+      .btn {
+        background: dodgerblue;
+        color: #fff;
+        border: none;
+        padding: 0 20px;
+        border-radius: 3px;
+      }
+    </style>
   </head>
   <body>
+    <div class="wrap">
+      <input type="text" class="num1" />
+      <span>VS</span>
+      <input type="text" class="num2" />
+      <button type="button" class="btn" onclick="compareNumber();">SHOW<br />RESULT</button>
+    </div>
+    <hr />
+    <p><span class="result">?</span> is big.</p>
     <script>
-      if (x > y) {
-        alert("heollow world");
-      } else {
-        alert("goodbuy");
+      let result = document.querySelector(".result");
+      function compareNumber() {
+        let a = document.querySelector(".num1").value;
+        let b = document.querySelector(".num2").value;
+
+        if (a > b) {
+          result.innerHTML = a;
+        } else if (a < b) {
+          result.innerHTML = b;
+        } else {
+          result.innerHTML = "No one";
+        }
       }
     </script>
   </body>
