@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let data = prompt("어디까지 숫자를 출력을 할까요?", "숫자입력");
+      data = parseInt(data);
+      //string -> number
+      //parseInt는 string에 공백이 있으면 앞의 숫자만 나옴
+      //소수점이 있으면 소수점 아래숫자는 버림
+      data = parseInt(data);
+      for (var i = 1; i <= data; i++) {
+        document.write(i + "<br>");
+      }
+    </script>
+  </body>
+</html>
