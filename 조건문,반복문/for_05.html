@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for문</title>
+  </head>
+  <body>
+    <h1>Input COUNT</h1>
+    <input type="text" id="num" />
+    <button type="button" onclick="printFruits()">RUN</button>33
+    <script>
+      let a = 1; // number
+      let b = "1"; // string
+      console.log(a == b); // compare. just value
+      console.log(a === b); // false, compare with dataType
+
+      function printFruits() {
+        console.clear();
+        let count = document.getElementById("num").value;
+        const fruits = ["바나나", "딸기", "오렌지", "apple", "melon", "kiwi", "lemon", "mango", "grape"];
+        if (isNaN(count)) {
+          console.log("count is not a number");
+          return false;
+        }
+
+        for (let i = 0; i < count; i++) {
+          console.log(fruits[i]);
+        }
+      }
+    </script>
+  </body>
+</html>

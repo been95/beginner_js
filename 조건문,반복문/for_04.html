@@ -7,15 +7,26 @@
     <title>for문</title>
   </head>
   <body>
+    <input type="text" id="num" />
+    <button type="button" onclick="runNumber()">RUN</button>
     <script>
-      let data = prompt("어디까지 숫자를 출력을 할까요?", "숫자입력");
-      data = parseInt(data);
-      //string -> number
-      //parseInt는 string에 공백이 있으면 앞의 숫자만 나옴
-      //소수점이 있으면 소수점 아래숫자는 버림
-      data = parseInt(data);
-      for (var i = 1; i <= data; i++) {
-        document.write(i + "<br>");
+      function runNumber() {
+        //let data = prompt("어디까지 숫자를 출력을 할까요?", "숫자입력");
+
+        let data = document.getElementById("num").value;
+        console.log(typeof data);
+
+        data = parseFloat(data); // parseInt();
+
+        console.log(typeof data);
+        console.log(data);
+        //string -> number
+        //parseInt는 string에 공백이 있으면 앞의 숫자만 나옴
+        //소수점이 있으면 소수점 아래숫자는 버림
+        console.log(`result is : ${data + 3}`);
+        for (var i = 1; i <= data; i++) {
+          document.write(i + "<br>");
+        }
       }
     </script>
   </body>
