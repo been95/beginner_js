@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-      	function remove(arr) {
-			for(let i = 0; i < 2; i++) {
-				arr.pop();
-			}
-		}
+      function remove(arr) {
+        for (let i = 0; i < 2; i++) {
+          arr.pop();
+        }
 
-		let fruitArray1 = ["apple", "orange", "banana"];
-		let fruitArray2 = ["pear", "melon", "peach", "cherry"];
+        console.log(arr);
+      }
 
-		remove(fruitArray1);
-		remove(fruitArray2);
+      let fruitArray1 = ["apple", "orange", "banana"];
+      let fruitArray2 = ["pear", "melon", "peach", "cherry"];
 
-		let fruitArray3 = fruitArray1.concat(fruitArray2); // 서로 다른 배열 병합 방법
+      remove(fruitArray1);
+      remove(fruitArray2);
 
-		document.write(fruitArray3);
+      let fruitArray3 = fruitArray1.concat(fruitArray2); // 서로 다른 배열 병합 방법
 
+      document.write(fruitArray3);
     </script>
-</body>
+  </body>
 </html>
