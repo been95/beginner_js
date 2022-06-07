@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 덧셈연산</title>
+</head>
+<body>
+    <input type="text">+<input type="text">
+    <button type="button" onclick="showSum()">=</button>
+    <input type="text">
+    <script>
+        	let showSum = function(){
+            let num1 = document.getElementsByTagName("input")[0].value;
+            let num2 = document.getElementsByTagName("input")[1].value;
+            let result = parseInt(num1) + parseInt(num2);
+            document.getElementsByTagName("input")[2].value=result;
+        }
+
+    </script>
+</body>
+</html>
