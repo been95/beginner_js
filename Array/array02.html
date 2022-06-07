@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열정리하기</title>
+</head>
+<body>
+    <input type="text" placeholder="이름입력" id="inputName"/>
+    <input type="text" placeholder="주소입력" id="inputAddr"/>
+    <button onclick="saveData()">저장</button>
+
+    <script>
+        var members=[];
+        var saveData = function(){
+            var name = document.getElementById("inputName").value;
+            var addr = document.getElementById("inputAddr").value;
+            var mem = {"name":name, "addr":addr};
+            members.push(mem);
+            document.getElementById("inputName").value="";
+            document.getElementById("inputAddr").value="";
+            alert(members.length + "째 회원을 저장 하였습니다.");
+            for(var a = 0 ; a < members.length ; a++){
+                console.log((a+1) +". "+ "이름:" + members[a].name + "," + "주소:" + members[a].addr);			
+            }		
+        };
+    </script>
+</body>
+</html>
