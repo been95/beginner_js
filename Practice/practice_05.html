@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기만들기</title>
+    <style>
+        main {
+    width: 150px;
+}
+
+/*button-wrap이라는 class 요소를 선택자로 하고, grid 디스플레이 적용,
+repeat(반복횟수, 반복값)
+*/
+.button-wrap {
+    display: grid;
+    /* 한 줄에 4개씩, 모두 동일한 비율 적용(1:1:1:1) */
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+    background: #828284;
+    border: 1px solid #454448;
+    font-size: 1rem;
+}
+/* nth-child(4n+2): 4번째 요소마다 스타일을 적용하는데 처음에만 두번째에 적용 */
+button:nth-child(4n+2), button:last-child  {
+    background-color: orange;
+}
+button:hover {
+    opacity: .5;
+}
+
+/*ac버튼 크기 조정*/
+.ac {
+  /*4등분하여 나온 5개의 선 중에서 첫번째 선부터 4번째 선까지 지정*/
+  grid-column: 1/4;
+  background: #6A6A6C;
+}
+
+/*0버튼 크기 조정*/
+.zero {
+
+  grid-column: 1/3;
+}
+
+* {
+    box-sizing: border-box;
+    color: white;
+}
+input, button {
+    height: 35px;
+    outline: none;
+}
+input {
+    width: 100%;
+    text-align: right;
+    border: none;
+    background: #5B5B5D;
+    padding-right: 1rem;
+    font-size: 1rem;
+}
+    </style>
+</head>
+<body>
+    <main>
+        <!--"text"타입의 요소는 사용자가 클릭할 수 없고 사용할 수 없음.-->
+        <input type="text" disabled>
+        <!--"button-wrap"이라는 class를 생성하고, 버튼을 만들어 준다.-->
+        <div class="button-wrap">
+            <!-- ac 클래스 추가 -->
+            <button data-type="ac" class="ac">AC</button>
+            <!--&divide;는 나눗셈 표시를 위한 html 토큰이다.-->
+            <button data-type="operator">&divide;</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <!--&times;는 곱셈 표시를 위한 html 토큰이다.-->
+            <button data-type="operator">&times;</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button data-type="operator">-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button data-type="operator">+</button>
+        
+            <button class="zero">0</button>
+            <button>.</button>
+            <button data-type="equals" class="equals">=</button>
+        </div>
+    </main>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
