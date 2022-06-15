@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='my_div'>
+        <span style='color:red'>안녕하세요?</span>
+    </div>
+    <input type='button'
+        value='innerHTML'
+        onclick='setInnerHTML()'/>
+    <input type='button'
+        value='innerText'
+        onclick='setInnerText()'/>
+    <input type='button'
+        value='textContent'
+        onclick='setTextContent()'/>
+
+
+<script>
+    function setInnerHTML() {
+  const element = document.getElementById('my_div');
+  element.innerHTML 
+    = '<div style="color:blue">InnerHTML<div>';
+} 
+
+function setInnerText() {
+  const element = document.getElementById('my_div');
+  element.innerText 
+    = '<div style="color:blue">InnerText<div>';
+} 
+
+function setTextContent() {
+  const element = document.getElementById('my_div');
+  element.textContent 
+    = '<div style="color:blue">TextContent<div>';
+} 
+</script>
+</body>
+</html>
