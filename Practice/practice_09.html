@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <style>
+      li {
+        border-bottom: 1px dashed #e8e8e8;
+        padding: 20px;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+
+      strong {
+        background: skyblue;
+      }
+      em {
+        background: coral;
+      }
+
+      li:hover {
+        background-color: #e8e8e8;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="lists">
+      <li>
+        <strong>HTML</strong>
+        <em>LANGUAGE</em>
+        LI AREA
+      </li>
+      <li>CSS : Cascading Style Sheet</li>
+      <li><span>JAVASCRIPT</span></li>
+    </ul>
+
+    <div class="result">HERE</div>
+
+    <script>
+      const lists = document.querySelector(".lists");
+      const result = document.querySelector(".result");
+
+      lists.addEventListener("click", function (e) {
+        console.log(e.target);
+        if (e.target.nodeName == "LI") {
+          result.innerHTML = e.target.innerHTML;
+        } else {
+          result.innerHTML = "Click error";
+        }
+
+        console.log("currentTarget : ", e.currentTarget.tagName);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <style>
+      #my_div {
+        border: 1px solid #d8d8d8;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+      #my_div dt {
+        font-weight: 600;
+        font-style: italic;
+      }
+      #my_div dd {
+        font-size: 50px;
+        color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <dl id="my_div">
+      <dt>무슨과일 먹을래?</dt>
+      <dd class="fruits">Pick!</dd>
+    </dl>
+    <h1>Select fruit</h1>
+    <div class="btns">
+      <input type="button" value="banana" />
+      <input type="button" value="apple" />
+      <input type="button" value="orange" />
+    </div>
+
+    <h1>Other fruit</h1>
+
+    <input type="text" class="other" placeholder="input fruit name" />
+    <button type="button" class="btn2">Apply Name</button>
+
+    <hr />
+
+    <button type="button" class="btn1">
+      <em>EM</em>
+      <strong>STRONG</strong>
+    </button>
+
+    <script>
+      const element = document.querySelector(".fruits");
+      let btns = document.querySelector(".btns");
+
+      console.log(document.querySelector("#my_div").innerHTML);
+
+      const btn1 = document.querySelector(".btn1");
+      btn1.addEventListener("click", function (e) {
+        // console.log(e.target);
+        console.log(e.currentTarget);
+      });
+
+      btns.addEventListener("click", function (e) {
+        element.innerHTML = e.target.value;
+      });
+
+      //버튼을 클릭하면 입력한 벨류값을 엘레먼트에 출력한다
+      const btn2 = document.querySelector(".btn2");
+      const other = document.querySelector(".other");
+      console.log(other);
+      btn2.addEventListener("click", function (e) {
+        const currentText = other.value;
+        if (currentText !== "") {
+          element.innerHTML = currentText;
+        } else {
+          element.innerHTML = "NOTHING!";
+        }
+      });
+    </script>
+  </body>
+</html>
