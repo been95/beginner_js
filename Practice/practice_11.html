@@ -6,36 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css" />
-    <style>
-      #my_div {
-        border: 1px solid #d8d8d8;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-      }
-      #my_div dt {
-        font-weight: 600;
-        font-style: italic;
-      }
-      #my_div dd {
-        font-size: 50px;
-        color: dodgerblue;
-      }
-    </style>
   </head>
   <body>
     <h1>TO DO LIST</h1>
-    <ul class="result"></ul>
     <div class="formBox">
       <input type="text" class="input" placeholder="input here" />
       <button type="button" class="button">+ ADD</button>
     </div>
+    <ul class="result"></ul>
 
     <script>
       const input = document.querySelector(".input");
       const result = document.querySelector(".result");
       const button = document.querySelector(".button");
-
+      let cnt =1;
       /*
       input.addEventListener("keyup", function (e) {
         result.innerHTML = e.target.value;
@@ -46,8 +30,10 @@
 			항목을 입력하고, 애드 버튼을 누르면,
 			입력한 값을 포함한 '엘아이'태그가 추가된다.
 			*/
-      button.addEventListener("click", function name(params) {
-        console.log(e);
+      button.addEventListener("click", function (e) {
+        let todo =document.createElement('li');
+        todo.innerHTML = input.value;
+        result.appendChild(todo);
       });
     </script>
   </body>
