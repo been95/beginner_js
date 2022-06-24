@@ -8,28 +8,29 @@
     <link rel="stylesheet" href="./reset.css" />
     </head>
     <body>
-    <h1>TO DO LIST</h1>
-    <div class="formBox">
-        <input type="text" class="input" placeholder="input here" />
-        <button type="button" class="button">+ ADD</button>
-    </div>
-    <ul class="result"></ul>
+        <h1>To Do List</h1>
+        <div class="container">
+            <input id="inputField" type="text">   
+            <button id="addToDo"> + </button>   
+            <ul class="to-dos" id="toDoList"> </ul>
+        </div> 
 
     <script>
-        const input = document.querySelector(".input");
-        const result = document.querySelector(".result");
-        const button = document.querySelector(".button");
-        const message = [ ]; 
-        /*
-			항목을 입력하고, 애드 버튼을 누르면,
-			입력한 값을 포함한 '엘아이'태그가 추가된다.
-			*/
-        button.addEventListener("click", function (e) {
-            let message = comment.value;
-            let todoList = result.innerHTML;
-            result.innerHTML = todoList + `<li>${message}</li>`;
+    let inputBox = document.getElementById('inputField');  // 할 일 입력창
+    let addToDo = document.getElementById('addToDo');      // 버튼
+    let toDoList = document.getElementById('toDoList');    // 할 일 리스트창
 
-        });
+    addToDo.addEventListener('click', function(){    // 버튼에 클릭 이벤트가 발생하면
+        var list = document.createElement('li');     // html 'li' 태그 만들기
+        if (!inputBox.value)            // 할 일 입력창에 내용이 입력되지 않으면 alert 발생
+            alert('내용을 입력해 주세요!');
+        else
+        {
+            list.innerText = inputBox.value;  // <li>입력된 할 일</li>
+            toDoList.appendChild(list);       // 할 일 리스트창에 자식으로 붙이기
+            inputBox.value= "";               // 할 일 입력창 초기화
+        }
+    })
     </script>
     </body>
 </html>
