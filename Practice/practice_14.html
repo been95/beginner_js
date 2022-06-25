@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>To do list - Create Element 사용</h1>
+    <input type="text" class="newItem" placeholder="할일을 입력하세요" />
+    <button type="button" class="addItem">할일 추가</button>
+
+    <ul id="todoList"></ul>
+    <script>
+      const input = document.querySelector(".newItem");
+      const btn = document.querySelector(".addItem");
+      const list = document.querySelector("#todoList");
+
+      btn.addEventListener("click", function (e) {
+        const newItem = input.value;
+        addLi(newItem);
+      });
+
+      function addLi(newOne) {
+        const item = document.createElement("li");
+        item.innerText = newOne;
+        list.appendChild(item);
+        const btnDel = document.createElement("button");
+        btnDel.innerText = "X";
+        item.appendChild(btnDel);
+
+        btnDel.addEventListener("click", function (e) {
+          this.parentElement.remove();
+        });
+      }
+    </script>
+  </body>
+</html>

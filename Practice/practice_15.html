@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="colorForm">
+      <input id="newColor" type="text" class="form-control" placeholder="New Color" required />
+      <button type="button" class="btnAdd">Add color</button>
+    </form>
+    <div class="wrap">
+      <div data-index="1">first</div>
+      <div data-index="2">second</div>
+    </div>
+    <ul id="colorList"></ul>
+    <script>
+      const lists = document.getElementById("colorList");
+      const colorForm = document.getElementById("colorForm");
+      const newColor = document.getElementById("newColor");
+      const btnAdd = document.querySelector(".btnAdd");
+      const baseColors = ["red", "green", "blue"];
+      const result = document.querySelector(".result");
+
+      const items = [];
+      console.log();
+
+      let wrap = document.querySelector(".wrap");
+      wrap.addEventListener("click", function (e) {
+        console.log(e.target.dataset.index);
+      });
+
+      function printColor() {
+        for (let i = 0; i < baseColors.length; i++) {
+          items.push(`<li data-index=${i}> ${baseColors[i]} <button type="button" class="delItem">DELETE</button></li>`);
+        }
+        lists.innerHTML = items.join("");
+      }
+
+      printColor();
+
+      btnAdd.addEventListener("click", function (e) {
+        baseColors.push(newColor.value);
+        printColor();
+      });
+    </script>
+  </body>
+</html>

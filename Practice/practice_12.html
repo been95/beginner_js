@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css" />
-    </head>
-    <body>
-        <h1>To Do List</h1>
-        <div class="container">
-            <input id="inputField" type="text">   
-            <button id="addToDo"> + </button>   
-            <ul class="to-dos" id="toDoList"> </ul>
-        </div> 
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <div class="container">
+      <input id="inputField" type="text" />
+      <button id="addToDo">+</button>
+      <ul class="to-dos" id="toDoList"></ul>
+    </div>
 
     <script>
-    let inputBox = document.getElementById('inputField');  // 할 일 입력창
-    let addToDo = document.getElementById('addToDo');      // 버튼
-    let toDoList = document.getElementById('toDoList');    // 할 일 리스트창
+      const inputBox = document.getElementById("inputField"); // 할 일 입력창
+      const addToDo = document.getElementById("addToDo"); // 버튼
+      const toDoList = document.getElementById("toDoList"); // 할 일
 
-    addToDo.addEventListener('click', function(){    // 버튼에 클릭 이벤트가 발생하면
-        var list = document.createElement('li');     // html 'li' 태그 만들기
-        if (!inputBox.value)            // 할 일 입력창에 내용이 입력되지 않으면 alert 발생
-            alert('내용을 입력해 주세요!');
-        else
-        {
-            list.innerText = inputBox.value;  // <li>입력된 할 일</li>
-            toDoList.appendChild(list);       // 할 일 리스트창에 자식으로 붙이기
-            inputBox.value= "";               // 할 일 입력창 초기화
+      addToDo.addEventListener("click", function () {
+        // 버튼에 클릭 이벤트가 발생하면
+        let list = document.createElement("li"); // html 'li' 태그 만들기
+        if (!inputBox.value)
+          // 할 일 입력창에 내용이 입력되지 않으면 alert 발생
+          alert("내용을 입력해 주세요!");
+        else {
+          list.innerHTML = inputBox.value; // <li>입력된 할 일</li>
+          toDoList.appendChild(list); // 할 일 리스트창에 자식으로 붙이기
+          inputBox.value = ""; // 할 일 입력창 초기화
         }
-    })
+      });
+      toDoList.addEventListener("click", function (e) {
+        e.target.remove();
+      });
     </script>
-    </body>
+  </body>
 </html>

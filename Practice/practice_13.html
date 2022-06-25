@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <style>
+      .grand,
+      .grand * {
+        padding: 20px;
+      }
+      .grand {
+        border: 1px solid red;
+        background: pink;
+      }
+      .parent {
+        border: 1px solid blue;
+        background: rgba(0, 255, 0, 0.5);
+      }
+
+      .child {
+        display: block;
+        border: 1px solid green;
+        background: rgba(0, 0, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+
+    <ul id="list">
+      <li>hello</li>
+      <li>world</li>
+      <li>html</li>
+    </ul>
+
+    <div class="grand">
+      Grand
+      <p class="parent">
+        Parent
+        <span class="child"> Child </span>
+      </p>
+    </div>
+
+    <div class="grand2">GRAND2</div>
+
+    <script>
+      const list = document.querySelector("#list");
+      const li = document.querySelector("li");
+      const grand = document.querySelector(".grand");
+      const grand2 = document.querySelector(".grand2");
+      /*
+      grand2.addEventListener("click", function (e) {
+        console.log(this, e.target, e.currentTarget);
+      });
+			*/
+
+      grand2.addEventListener("click", (e) => {
+        console.log(this, e.target, e.currentTarget);
+      });
+      grand.addEventListener("click", function (e) {
+        if (e.target.nodeName === "P") {
+          e.target.innerHTML = "HELLO WORLD";
+        } else if (e.target.nodeName === "SPAN") {
+          e.target.innerHTML = "HELLO WORLD";
+        }
+        /*  console.log(this, e); */
+        /*
+        console.log(
+	
+          `e.target : ${e.target.className},
+					e.currentTarget : ${e.currentTarget.className}`
+        );
+				*/
+      });
+      list.addEventListener("click", function (e) {
+        e.target.remove();
+        console.log(e.target.innerHTML);
+      });
+    </script>
+  </body>
+</html>
