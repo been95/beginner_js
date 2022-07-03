@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <style>
+      .menu {
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        box-sizing: border-box;
+        right: -250px;
+        top: 0;
+        background: #222;
+        color: #fff;
+        transition: all 0.4s;
+      }
+
+      .menu.open {
+        right: 0;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .title.on {
+        color: olive;
+        font-style: italic;
+      }
+
+      .wrap {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button type="button" class="btnHam btn">메뉴열기</button>
+    <div class="menu">menu</div>
+
+    <h1 class="title">HELLO WORLD</h1>
+    <div class="wrap">
+      <button type="button" class="btn add">ADD</button>
+      <button type="button" class="btn remove">REMOVE</button>
+      <button type="button" class="btn toggle">TOGGLE</button>
+      <button type="button" class="btn check">CHECK</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btnHam");
+      const menu = document.querySelector(".menu");
+
+      const add = document.querySelector(".add");
+      const remove = document.querySelector(".remove");
+      const toggle = document.querySelector(".toggle");
+      const check = document.querySelector(".check");
+
+      const title = document.querySelector(".title");
+      add.addEventListener("click", () => {
+        title.classList.add("on");
+      });
+      remove.addEventListener("click", () => {
+        title.classList.remove("on");
+      });
+      toggle.addEventListener("click", () => {
+        title.classList.toggle("on");
+      });
+      check.addEventListener("click", () => {
+        let state = title.classList.contains("on");
+        if (state) {
+          console.log('title has "on" class.');
+        } else {
+          console.log('title has not "on" class.');
+        }
+      });
+    </script>
+  </body>
+</html>

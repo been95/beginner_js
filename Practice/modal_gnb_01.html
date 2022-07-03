@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <style>
+      .menu {
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        box-sizing: border-box;
+        right: -250px;
+        top: 0;
+        background: #222;
+        color: #fff;
+        transition: all 0.4s;
+      }
+
+      .menu.open {
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button type="button" class="btnHam btn">메뉴열기</button>
+    <div class="menu">menu</div>
+
+    <script>
+      const btn = document.querySelector(".btnHam");
+      const menu = document.querySelector(".menu");
+
+      btn.addEventListener("click", (e) => {
+        menu.classList.toggle("open");
+        //만약에 메뉴에 오픈클래스가 있다면 메뉴는 닫기로 변함
+        //오픈클래스가 없다면 메뉴 열기로 변함
+        if (menu.classList.contains("open")) {
+          btn.innerHTML = "닫기";
+        } else {
+          btn.innerHTML = "열기";
+        }
+      });
+    </script>
+  </body>
+</html>

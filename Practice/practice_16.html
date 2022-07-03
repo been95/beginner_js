@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="newColor" type="text" placeholder="New Color" />
+    <button type="button" class="btnAdd">Add color</button>
+
+    <ul id="colorList"></ul>
+
+    <script>
+      const lists = document.getElementById("colorList");
+      const newColor = document.getElementById("newColor");
+      const btnAdd = document.querySelector(".btnAdd");
+
+      const baseColors = [];
+      const li = [];
+
+      // btnAdd.addEventListener("click", function () {
+      //   baseColors.push(newColor.value);
+      //   let index = baseColors.length - 1;
+      //   li.push(`<li data-index="${index}">${baseColors[index]}</li>`);
+
+      //   lists.innerHTML = li.join("");
+      // });
+
+      btnAdd.addEventListener("click", function () {
+        baseColors.push(newColor.value);
+        let index = baseColors.lastIndexOf(newColor.value);
+        li.push(`<li data-index="${index}">${baseColors[index]}</li>`);
+        lists.innerHTML = li.join("");
+      });
+
+      const numbers = ["one", "two", "five", "three", "two", "four"];
+      numbers.push("apple");
+      numbers.splice(2, 1);
+      numbers.indexOf("two");
+      console.log(numbers.indexOf("two"));
+    </script>
+  </body>
+</html>
