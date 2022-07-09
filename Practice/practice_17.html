@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="title">Number</h1>
+    <input type="text" class="newItem" placeholder="숫자를입력하시오" />
+    <button type="button" class="addItem">맞추기</button>
+    <button type="button" class="btn1">Create Number(1~10)</button>
+    <button type="button" class="btn2">Create Number(1~5)</button>
+    <button type="button" class="btn3">Create Number(1~100)</button>
+
+    <script>
+      let number = 0;
+
+      const btn1 = document.querySelector(".btn1");
+      const btn2 = document.querySelector(".btn2");
+      const btn3 = document.querySelector(".btn3");
+      const title = document.querySelector(".title");
+      const input = document.querySelector(".newItem");
+      const button = document.querySelector(".addItem");
+
+      newNumber(10);
+
+      btn1.addEventListener("click", () => newNumber(10));
+      btn2.addEventListener("click", () => newNumber(5));
+      btn3.addEventListener("click", createHundred);
+
+      function newNumber(limit) {
+        number = Math.floor(Math.random() * limit + 1);
+        title.innerHTML = number;
+      }
+      function createHundred() {
+        // alert("hello");
+        number = Math.floor(Math.random() * 100 + 1);
+        title.innerHTML = number;
+      }
+
+      button.addEventListener("click", (e) => {
+        const newItem = parseInt(input.value);
+        if (newItem === number) {
+          title.innerHTML = `${number}.congraturation`;
+        } else {
+          title.innerHTML = `${number}.wrong number`;
+        }
+
+        console.log(number);
+      });
+
+      /*
+         console.log(Math.floor(5.95));
+         console.log(Math.floor(5.05));
+         console.log(Math.floor(5));
+         console.log(Math.floor(-5.95));
+         console.log(Math.floor(-5.25));
+      */
+
+      let a = 3;
+      let b = "3";
+
+      console.log(a == b); // only value
+      console.log(a === b); // include Data Type
+    </script>
+  </body>
+</html>

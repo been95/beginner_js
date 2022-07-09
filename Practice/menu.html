@@ -1,98 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
-        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
-        <title> transform_응용(햄버거 메뉴창 만들기) </title>
-        <style>
-            .menu {
-              position: fixed;
-              width: 250px;
-              height: 100vh;
-              box-sizing: border-box;
-              right: -250px;
-              top: 0;
-              background: #222;
-              color: #fff;
-              transition: all 0.4s;
-            }
-      
-            .menu.open {
-              right: 0;
-            }
-            .menu-trigger,
-            .menu-trigger span {
-            display: inline-block;
-            transition: all 0.4s;
-            box-sizing: border-box;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>transform_응용(햄버거 메뉴창 만들기)</title>
+    <style>
+      .menu {
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        box-sizing: border-box;
+        right: -250px;
+        top: 0;
+        background: #222;
+        color: #fff;
+        transition: all 0.4s;
+      }
 
-            .menu-trigger {
-            position: relative;
-            width: 50px;
-            height: 44px;
-            }
+      .menu.open {
+        right: 0;
+      }
+      .menu-trigger,
+      .menu-trigger span {
+        display: inline-block;
+        transition: all 0.4s;
+        box-sizing: border-box;
+      }
 
-            .menu-trigger span {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: #fff;
-            border-radius: 4px;
-            }
+      .menu-trigger {
+        position: relative;
+        width: 50px;
+        height: 44px;
+        cursor: pointer;
+      }
 
-            .menu-trigger span:nth-of-type(1) {
-            top: 0;
-            }
+      .menu-trigger span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #fff;
+        border-radius: 4px;
+      }
 
-            .menu-trigger span:nth-of-type(2) {
-            top: 20px;
-            }
+      .menu-trigger span:nth-of-type(1) {
+        top: 0;
+      }
 
-            .menu-trigger span:nth-of-type(3) {
-            bottom: 0;
-            }
+      .menu-trigger span:nth-of-type(2) {
+        top: 19px;
+      }
 
-            /* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
+      .menu-trigger span:nth-of-type(3) {
+        bottom: 0;
+      }
 
-            .menu-trigger.active-1 span:nth-of-type(1) {
-            transform: translateY(20px) rotate(-45deg);
-            }
+      /* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
 
-            .menu-trigger.active-1 span:nth-of-type(2) {
-            opacity: 0;
-            }
+      .menu-trigger.active-1 span:nth-of-type(1) {
+        transform: translateY(18px) rotate(-45deg);
+      }
 
-            .menu-trigger.active-1 span:nth-of-type(3) {
-            transform: translateY(-20px) rotate(45deg);
-            }
+      .menu-trigger.active-1 span:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      .menu-trigger.active-1 span:nth-of-type(3) {
+        transform: translateY(-18px) rotate(45deg);
+      }
+
+      .lineWrap {
+        margin-top: 100px;
+        cursor: pointer;
+      }
+
+      .line {
+        display: block;
+        width: 50px;
+        height: 4px;
+        border-radius: 4px;
+        background: #000;
+        margin: 10px 0;
+        transition: 0.4s;
+      }
+      /*
+      .a {
+        transform-origin: left top;
+      }
+
+      .c {
+        transform-origin: left bottom;
+      }
+*/
+      .lineWrap:hover .a {
+        transform: translateY(14px) rotate(45deg);
+      }
+
+      .lineWrap:hover .b {
+        transform: scaleX(0);
+      }
+
+      .lineWrap:hover .c {
+        transform: translateY(-14px) rotate(-45deg);
+      }
     </style>
-    </head>
-    
-    <body>
-        <header>
-            <nav>
-                <button type="button" class="menu-trigger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="menu">menu</div>
-            </nav>
-        </header>
-        <script>
-            
-            const menuTrigger = document.querySelector('.menu-trigger');
-            const menu = document.querySelector(".menu");
+  </head>
 
-            menuTrigger.addEventListener("click", (e) => {
-                menu.classList.toggle("open");
-                event.currentTarget.classList.toggle('active-1');
-            });
-            
-         
-    </script>
-    </body>
+  <body>
+    <header>
+      <nav>
+        <button type="button" class="menu-trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="menu">menu</div>
+      </nav>
+    </header>
+    <div class="lineWrap">
+      <span class="line a"></span>
+      <span class="line b"></span>
+      <span class="line c"></span>
+    </div>
+    <script src="./js/menu.js"></script>
+  </body>
 </html>
