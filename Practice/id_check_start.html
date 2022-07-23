@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/common.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <input type="text" id="id" class="text" />
+      <button type="button" class="btn">check</button><br />
+      <strong class="msg">ID를 입력하세요</strong>
+    </div>
+
+    <hr />
+    <h2>member list</h2>
+    <ul class="members"></ul>
+    <script src="./js/member.js"></script>
+    <script>
+      console.log(lists);
+      const id = document.querySelector("#id");
+      const btn = document.querySelector(".btn");
+      const members = document.querySelector(".members");
+      const msg = document.querySelector(".msg");
+
+      let memberList = []; // click, click, click
+      let printList = []; // <li>click</li>, <li>click</li>
+
+      btn.addEventListener("click", (e) => {
+        let click = id.value;
+        memberCheck(click);
+        members.innerHTML = printList;
+      });
+
+      function memberCheck(name) {
+        if (memberList.includes(name)) {
+          msg.innerHTML = "중복입니다";
+          return false;
+        } else {
+          memberList.push(name);
+          console.log(memberList);
+          printList.push(`<li>${name}</li>`);
+        }
+      }
+    </script>
+  </body>
+</html>
