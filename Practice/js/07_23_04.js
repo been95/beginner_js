@@ -36,7 +36,7 @@ const members = [
 // console.log(typeof myPets, myPets);
 // //console.log(pets.length, pets[0].name, pets[1].name);
 
-// let a = 3;
+// let a = 3;git
 // a += 3;
 /// console.log(a);
 
