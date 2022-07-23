@@ -38,7 +38,7 @@ const members = [
 
 // let a = 3;
 // a += 3;
-// console.log(a);
+/// console.log(a);
 
 console.log(members[0].age);
 for (let i = 0; i < members.length; i++) {
