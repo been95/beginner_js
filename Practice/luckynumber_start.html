@@ -43,19 +43,25 @@
       const word = document.querySelector(".word");
       let number = 0;
 
-      function newNumber(num) {
-        numer = Math.floor(Math.random() * num) + 1;
-        console.log(numer);
+      function makeNumber(num) {
+        number = Math.floor(Math.random() * num) + 1;
+        console.log(number);
+        return number;
       }
 
-      start.addEventListener("click", (e) => makeNumber(5));
+      start.addEventListener("click", () => makeNumber(5));
+
       btn.addEventListener("click", (e) => {
-        if (text.value == number) {
+        if(text.value === ""){
+          alert("숫자를 입력해주세요")
+        }else if(text.value == number) {
           word.innerHTML = `The luckynumber is ${number}. Congraturations!`;
-        } else {
+        }else  {
           word.innerHTML = `Wrong Number, Try again~! `;
         }
       });
+      
+
     </script>
   </body>
 </html>
