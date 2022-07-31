@@ -24,6 +24,7 @@ for (let i in data) {
   li.appendChild(p);
   li.appendChild(img);
   li.appendChild(button);
+  li.appendChild(h1);
 
   ul.appendChild(li);
 }
