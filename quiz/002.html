@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클릭하면 배경색 바꾸기</title>
+    <style>
+      body {
+        background-color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="컬러입력" />
+    <button type="button">컬러제출</button>
+
+    <script>
+      const text = document.querySelector("input");
+      const button = document.querySelector("button");
+      const body = document.body;
+      text.style.border = "2px solid plum";
+      button.addEventListener("click", (e) => {
+        const usercolor = text.value;
+        body.style.background = usercolor;
+      });
+    </script>
+  </body>
+</html>

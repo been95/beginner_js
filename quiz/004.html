@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클릭하면 배경색 바꾸기</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Color</h1>
+    <select>
+      <option value="Thistle">Thistle</option>
+      <option value="LightPink">LightPink</option>
+      <option value="SteelBlue">SteelBlue</option>
+    </select>
+    <button type="button">컬러제출</button>
+
+    <script>
+      const h1 = document.querySelector("h1");
+      const text = document.querySelector("select");
+      const button = document.querySelector("button");
+      const body = document.body;
+      text.style.border = "2px solid plum";
+
+      const setBg = () => {
+        body.style.backgroundColor = text.value;
+        h1.textContent = `Body Color is : ${text.value}`;
+      };
+
+      setBg();
+      button.addEventListener("click", setBg);
+
+      text.addEventListener("change", setBg);
+    </script>
+  </body>
+</html>
