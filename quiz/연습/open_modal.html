@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>open modal</title>
+    <style>
+      body {
+        color: #333;
+        background: #333;
+        text-align: center;
+        font-weight: 300;
+      }
+      .container > button {
+        margin: 60px;
+        padding: 20px 40px;
+        font-size: 30px;
+        border-radius: 40px;
+      }
+      .model {
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        top: 100%;
+        position: fixed;
+        left: 0;
+        text-align: left;
+        transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button type="button" class="menu-trigge">open modal</button>
+      <div class="modal">
+        <div class="header">사용법 및 공지사항</div>
+        <div class="body">
+          <ul>
+            <li>모윰독립법인 분할에 따른 개인정보이전 안내</li>
+            <li>카카오플러스친구 쿠폰 다운로드 오류공지</li>
+            <li>대체공휴일 휴무 배송지연 안내</li>
+            <li>[당첨자발표] 엘프레리 체험단 엘프맘4기 당첨자발표</li>
+          </ul>
+          <a class="btn js-close-modal">Close</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function modal() {
+      const menuTrigger = document.querySelector(".menu-trigger");
+      const modal = document.querySelector(".modal");
+
+      if (menuTrigger) {
+        menuTrigger.addEventListener("click", (e) => {
+          console.log(e);
+        });
+      }
+    }
+  </script>
+</html>
