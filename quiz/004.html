@@ -8,30 +8,16 @@
     <style></style>
   </head>
   <body>
-    <h1>Color</h1>
-    <select>
-      <option value="Thistle">Thistle</option>
-      <option value="LightPink">LightPink</option>
-      <option value="SteelBlue">SteelBlue</option>
-    </select>
-    <button type="button">컬러제출</button>
+    <div class="bodyColor">
+      <h1>Color</h1>
+      <select>
+        <option value="Thistle">Thistle</option>
+        <option value="LightPink">LightPink</option>
+        <option value="SteelBlue">SteelBlue</option>
+      </select>
+      <button type="button">컬러제출</button>
+    </div>
 
-    <script>
-      const h1 = document.querySelector("h1");
-      const text = document.querySelector("select");
-      const button = document.querySelector("button");
-      const body = document.body;
-      text.style.border = "2px solid plum";
-
-      const setBg = () => {
-        body.style.backgroundColor = text.value;
-        h1.textContent = `Body Color is : ${text.value}`;
-      };
-
-      setBg();
-      button.addEventListener("click", setBg);
-
-      text.addEventListener("change", setBg);
-    </script>
+    <script src="./common.js"></script>
   </body>
 </html>
