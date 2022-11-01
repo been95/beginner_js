@@ -55,7 +55,9 @@
       const modal = document.querySelector(".modal");
 
       if (menuTrigger) {
-        menuTrigger.addEventListener("click", (e) => {});
+        menuTrigger.addEventListener("click", (e) => {
+          modal.classList.toggle("open");
+        });
       }
     }
   </script>
