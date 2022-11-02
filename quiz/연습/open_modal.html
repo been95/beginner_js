@@ -4,61 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>open modal</title>
+    <title>모달창 만들기</title>
     <style>
-      body {
-        color: #333;
-        background: #333;
-        text-align: center;
-        font-weight: 300;
-      }
-      .container > button {
-        margin: 60px;
-        padding: 20px 40px;
-        font-size: 30px;
-        border-radius: 40px;
-      }
-      .model {
-        background: #fff;
+      #modal.modal-overlay {
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        top: 100%;
-        position: fixed;
+        position: absolute;
         left: 0;
-        text-align: left;
-        transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #modal .modal-window {
+        background: rgba(69, 139, 197, 0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 400px;
+        height: 500px;
+        position: relative;
+        top: -100px;
+        padding: 10px;
+      }
+      #modal .title {
+        padding-left: 10px;
+        display: inline-block;
+        text-shadow: 1px 1px 2px gray;
+        color: white;
+      }
+      #modal .title h2 {
+        display: inline;
+      }
+      #modal .close-area {
+        display: inline;
+        float: right;
+        padding-right: 10px;
+        cursor: pointer;
+        text-shadow: 1px 1px 2px gray;
+        color: white;
+      }
+
+      #modal .content {
+        margin-top: 20px;
+        padding: 0px 10px;
+        text-shadow: 1px 1px 2px gray;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <button type="button" class="menu-trigge">open modal</button>
-      <div class="modal">
-        <div class="header">사용법 및 공지사항</div>
-        <div class="body">
-          <ul>
-            <li>모윰독립법인 분할에 따른 개인정보이전 안내</li>
-            <li>카카오플러스친구 쿠폰 다운로드 오류공지</li>
-            <li>대체공휴일 휴무 배송지연 안내</li>
-            <li>[당첨자발표] 엘프레리 체험단 엘프맘4기 당첨자발표</li>
-          </ul>
-          <a class="btn js-close-modal">Close</a>
+    <div id="container">
+      <h1>모달창만들기</h1>
+      <button id="btn-modal">open</button>
+      <div id="lorem-ipsum"></div>
+    </div>
+    <div id="modal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="title">
+          <h2>모달</h2>
+        </div>
+        <div class="close-area">X</div>
+        <div class="content">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
       </div>
     </div>
   </body>
   <script>
-    function modal() {
-      const menuTrigger = document.querySelector(".menu-trigger");
-      const modal = document.querySelector(".modal");
-
-      if (menuTrigger) {
-        menuTrigger.addEventListener("click", (e) => {
-          modal.classList.toggle("open");
-        });
-      }
+    const loremIpsum = document.querySelector("#lorem-ipsum");
+    const modal = document.querySelector("#modal");
+    function modalOn() {
+      modal.style.display = "flex";
     }
+    function isModalOn() {
+      return modal.style.display === "flex";
+    }
+    function modalOff() {
+      modal.style.display = "none";
+    }
+    const btnModal = document.getElementById("btn-modal");
+    btnModal.addEventListener("click", (e) => {
+      modalOn();
+    });
+    const closeBtn = modal.querySelector(".close-area");
+    closeBtn.addEventListener("click", (e) => {
+      modalOff();
+    });
+    modal.addEventListener("click", (e) => {
+      const evTarget = e.target;
+      if (evTarget.classList.contains("modal-overlay")) {
+        modalOff();
+      }
+    });
   </script>
 </html>
