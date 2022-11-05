@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="btns">
+      <button type="button" data-size="s" data-name="hello">Small</button>
+      <button type="button" data-size="m">Medium</button>
+      <button type="button" data-size="b">Big</button>
+    </div>
+    <h1>HELLO WORLD</h1>
+  </body>
+  <script>
+    const btns = document.querySelectorAll(".btns button");
+    const h1 = document.querySelector("h1");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = e.target;
+        const size = target.dataset.size;
+        console.log(target.dataset.name);
+
+        if (size === "s") {
+          console.log("clicked small button");
+          h1.style.fontSize = "10px";
+        } else if (size === "m") {
+          console.log("clicked medium button");
+          h1.style.fontSize = "16px";
+        } else {
+          console.log("clicked big button");
+          h1.style.fontSize = "32px";
+        }
+      });
+    });
+  </script>
+</html>

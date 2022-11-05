@@ -66,8 +66,8 @@
   </head>
   <body>
     <div id="navbar">
-      <button type="button" onclick="zoomin()">Zoom In</button>
-      <button type="button" onclick="zoomout()">Zoom Out</button>
+      <button type="button" data-zoom="in">Zoom In</button>
+      <button type="button" data-zoom="out">Zoom Out</button>
     </div>
 
     <div class="main dragscroll">
@@ -75,22 +75,72 @@
     </div>
   </body>
   <script>
-    function zoomin() {
-      const myImg = document.getElementById("map");
-      const currWidth = myImg.clientWidth;
-      if (currWidth == 2500) return false;
-      else {
-        myImg.style.width = currWidth + 100 + "px";
-      }
-    }
+    const zoom = () => {
+      const buttons = document.querySelectorAll("#navbar button");
+      const myImg = document.querySelector("#map");
+      let size = 0;
 
-    function zoomout() {
-      const myImg = document.getElementById("map");
-      const currWidth = myImg.clientWidth;
-      if (currWidth == 100) return false;
-      else {
-        myImg.style.width = currWidth - 100 + "px";
-      }
-    }
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const target = e.target.dataset.zoom;
+          const currWidth = myImg.clientWidth;
+          console.log(currWidth);
+
+          if (target === "in") {
+            if (currWidth > 1000) {
+              return false;
+            } else {
+              size = currWidth + 100;
+            }
+          } else {
+            if (currWidth < 100) {
+              return false;
+            } else {
+              size = currWidth - 100;
+            }
+          }
+
+          myImg.style.width = size + "px";
+        });
+      });
+
+      /*
+      const zoomin = () => {
+        const currWidth = myImg.clientWidth;
+        if (currWidth == 2500) return false;
+        else {
+          size = currWidth + 100;
+        }
+        myImg.style.width = size + "px";
+      };
+      button[0].addEventListener("click", zoomin);
+
+      const zoomout = () => {
+        const currWidth = myImg.clientWidth;
+        console.log(currWidth);
+        if (currWidth == 100) return false;
+        else {
+          size = currWidth - 100;
+        }
+
+        myImg.style.width = size + "px";
+      };
+      button[1].addEventListener("click", zoomout);
+      */
+    };
+    zoom();
+
+    // function zoomin() {
+    //
+    // }
+
+    // function zoomout() {
+    //   const myImg = document.getElementById("map");
+    //   const currWidth = myImg.clientWidth;
+    //   if (currWidth == 100) return false;
+    //   else {
+    //     myImg.style.width = currWidth - 100 + "px";
+    //   }
+    // }
   </script>
 </html>

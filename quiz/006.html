@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="petList">
+      <li>Dog</li>
+      <li>Cat</li>
+      <li>Ge Sal-gu</li>
+      <li>Nana</li>
+    </ul>
+    <script>
+      let pets = ["강아지", "고양이", "개살구", "나나"];
+      const petList = document.querySelectorAll(".petList li");
+
+      /*
+      for (let pet of petList) {
+        console.log(pet.innerHTML);
+      }
+			*/
+      petList.forEach((pet, i) => {
+        pet.addEventListener("click", (event) => {
+          const target = event.target;
+          target.style.color = "red";
+        });
+      });
+      /*
+               console.log(typeof petList);
+               console.log(typeof pets);
+            console.log(pets[0])
+               for (let i = 0; i < pets.length; i++) {
+                 console.log(pets[i]);
+               }
+
+               for (let pet of pets) {
+                 console.log(pet);
+               }
+               for (let i in pets) {
+                 console.log(i, pets[i]);
+               }
+
+               pets.forEach((pet, i) => {
+                 console.log(i, pet, "Hello");
+               });
+            */
+    </script>
+  </body>
+</html>
