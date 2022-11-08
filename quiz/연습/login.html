@@ -96,7 +96,7 @@ h3{
 .signup-input-c input{
     background: #f5f6f7;
 }
-#signup-id, #signup-pw, #signup-pww{
+#id, #pw, #pww{
     height: 29px;
     border: none;
     outline:none;
@@ -208,6 +208,11 @@ h3{
     outline:none;
     cursor: pointer;
 }
+.erro_box{
+    font-size: 14px;
+    color: red;
+    text-align: left;
+}
 </style>
 </head>
 
@@ -218,8 +223,7 @@ h3{
         <header>
             <!--NAVER LOGO-->
             <h1 class="logo">
-                <a href="https://www.naver.com/" target="_blank" title="네이버 홈페이지"><img src="image/NAVER_LOGO.png"
-                class="image"></a>
+                <a href="https://www.naver.com/" target="_blank" title="네이버 홈페이지">logo</a>
             </h1>
         </header>
 
@@ -228,10 +232,10 @@ h3{
                 <!--아이디,비번,비번재확인-->
             <div class="idbox">
             <h3>
-                <label for="id">아이디</label>
+                <label class="name" for="id">아이디</label>
             </h3>
             <span class="signup-input">
-                <input id="signup-id" type="text" title="id" name="id"></input>
+                <input id="id" type="text" title="id" name="id"></input>
                 <span class="signup-at">@naver.com</span>
             </span>
             <span class="erro_box id_errp"></span>
@@ -239,10 +243,10 @@ h3{
 
             <div class ="pxbox">
                 <h3> 
-                <label for="px">비밀번호</label>
+                <label for="pw">비밀번호</label>
                 </h3>
                 <span class="signup-input">
-                    <input id="signup-pw" type="text"></input>
+                    <input id="pw" type="text"></input>
                     <span class="pw-lock"></span>
                 </span>
                 <span class="erro_box px_box"></span>
@@ -250,7 +254,7 @@ h3{
                 <label for="px">비밀번호재설정</label>
                 </h3>
                 <span class="signup-input">
-                    <input id="signup-pww" type="text"></input>
+                    <input id="pww" type="text"></input>
                     <span class="pww-lock"></span>
                 </span>
                 <span class="erro_box px_box"></span>
@@ -298,6 +302,30 @@ h3{
 
 </body>
 <script>
-
+    const pw = document.querySelector("#pw");
+    const pww = document.querySelector("#pww");
+    const errorRed = document.querySelector(".erro_box");
+    const checkTarget = () => {
+        const id = document.querySelector("#id");
+        id.addEventListener("click", (e) => {
+            if(id.value.length===0){
+                errorRed.innerHTML="필수정보입니다"
+            }else if(id.value.length >=4){
+                errorRed.innerHTML="5~20자의 영문  사용 가능합니다."
+            }
+        });
+    };
+    checkTarget();
+    const checkpw = () => {
+        const pw = document.querySelector("#pw");
+        pw.addEventListener("click", (e) => {
+            if(id.value.length===0){
+                errorRed.innerHTML="필수정보입니다"
+            }else if(id.value.length >=4){
+                errorRed.innerHTML="5~20자의 영문  사용 가능합니다."
+            }
+        });
+    };
+    checkpw();
 </script>
 </html>
