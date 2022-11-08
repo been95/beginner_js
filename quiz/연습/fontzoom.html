@@ -17,18 +17,21 @@
     const zoom = () => {
       const btns = document.querySelectorAll(".btns button");
       const p = document.querySelector("p");
-      let font = 9;
+      let font = 14;
       btns.forEach((btn) => {
         btn.addEventListener("click", (e) => {
           const target = e.target;
           const size = target.dataset.size;
           if (size === "b") {
             if (font++) {
-              console.log("clicked small button");
+              console.log("clicked big button");
               p.style.fontSize = font + "px";
-            } else {
-              font = p.style.fontSize;
             }
+          } else if (font--) {
+            console.log("clicked small button");
+            p.style.fontSize = font + "px";
+          } else {
+            font = p.style.fontSize;
           }
         });
       });
