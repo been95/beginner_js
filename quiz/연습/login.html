@@ -302,15 +302,15 @@ h3{
 
 </body>
 <script>
-    const pw = document.querySelector("#pw");
+ 
     const pww = document.querySelector("#pww");
     const errorRed = document.querySelector(".erro_box");
     const checkTarget = () => {
         const id = document.querySelector("#id");
         id.addEventListener("click", (e) => {
-            if(id.value.length===0){
+            if(id.value.length ==""){
                 errorRed.innerHTML="필수정보입니다"
-            }else if(id.value.length >=4){
+            }else if(id.value.length <="4"){
                 errorRed.innerHTML="5~20자의 영문  사용 가능합니다."
             }
         });
@@ -318,13 +318,7 @@ h3{
     checkTarget();
     const checkpw = () => {
         const pw = document.querySelector("#pw");
-        pw.addEventListener("click", (e) => {
-            if(id.value.length===0){
-                errorRed.innerHTML="필수정보입니다"
-            }else if(id.value.length >=4){
-                errorRed.innerHTML="5~20자의 영문  사용 가능합니다."
-            }
-        });
+        
     };
     checkpw();
 </script>
