@@ -64,7 +64,7 @@
       <button id="btn-modal">open</button>
       <div id="lorem-ipsum"></div>
     </div>
-    <div id="modal" class="modal-overlay">
+    <div id="modal">
       <div class="modal-window">
         <div class="title">
           <h2>모달</h2>
@@ -78,16 +78,15 @@
   </body>
   <script>
     const modalOpen = () => {
-      const btnModal = document.getElementById("btn-modal");
-      const loremIpsum = document.querySelector("#lorem-ipsum");
       const modal = document.querySelector("#modal");
+      const btnModal = document.getElementById("btn-modal");
       const closeBtn = modal.querySelector(".close-area");
 
       const modalOn = () => {
-        modal.style.display = "flex";
+        modal.classList.add("open");
       };
       const modalOff = () => {
-        modal.style.display = "none";
+        modal.classList.remove("open");
       };
 
       btnModal.addEventListener("click", modalOn);
