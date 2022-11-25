@@ -4,13 +4,109 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>폰트줌</title>
+    <title>Document</title>
+    <style>
+      *body {
+        margin: 0;
+      }
+
+      #navbar {
+        overflow: hidden;
+        background-color: #099;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 20px;
+      }
+
+      #navbar a {
+        float: left;
+        display: block;
+        color: #666;
+        text-align: center;
+        padding-right: 20px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      #navbar a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .main {
+        padding: 16px;
+        margin-top: 30px;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        cursor: grab;
+        cursor: -o-grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+      }
+
+      .main img {
+        height: auto;
+        width: 100%;
+      }
+
+      .button {
+        width: 300px;
+        height: 60px;
+      }
+    </style>
   </head>
   <body>
-    <div id="navbar">
-      <button type="button" data-zoom="in">Zoom In</button>
-      <button type="button" data-zoom="out">Zoom Out</button>
+    <div class="btns">
+      <button type="button" data-size="s" data-name="small">Small</button>
+      <button type="button" data-size="b" data-name="big">Big</button>
     </div>
-    <p></p>
+
+    <div class="main dragscroll">
+      <p>안녕</p>
+    </div>
   </body>
+  <script>
+    const btns = document.querySelectorAll(".btns button");
+    const p = document.querySelector("p");
+    //let font = window.getComputedStyle(p, null).getPropertyValue("font-size");
+    let font = 14;
+    console.log(font);
+    btns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = e.target;
+        const size = target.dataset.size;
+        console.log(p.style.fontSize);
+        if (size === "b") {
+          font++;
+          console.log(font);
+          p.style.fontSize = font + "px";
+        } else {
+          font--;
+          p.style.fontSize = font + "px";
+        }
+        // if (size === "b") {
+        //   if (font++) {
+        //     console.log("clicked big button");
+        //     p.style.fontSize = font + "px";}
+        //   }
+        //   else if (font--) {
+        //   console.log("clicked small button");
+        //   p.style.fontSize = font + "px";
+        //   }
+        //   else {
+        //   font = p.style.fontSize;
+        //   }
+        // }
+      });
+    });
+  </script>
 </html>

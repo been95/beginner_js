@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" class="input" />
+    <p class="msg">HELLO</p>
+
+    <select>
+      <option>Red</option>
+      <option>Green</option>
+      <option>Blue</option>
+    </select>
+    <hr />
+    <div class="grand">
+      <div class="prev">APPLE</div>
+      <div class="parent">
+        <input type="text" class="me" />
+      </div>
+      <div class="error">ERROR</div>
+    </div>
+
+    <script>
+      const me = document.querySelector(".me");
+      let error = me.parentElement.nextElementSibling;
+
+      me.addEventListener("blur", (e) => {
+        if (e.target.value === "") {
+          error.innerHTML = "Input value";
+        } else {
+          error.innerHTML = "Passed";
+        }
+      });
+
+      const input = document.querySelector(".input");
+      const msg = document.querySelector(".msg");
+
+      input.addEventListener("focus", (e) => {
+        console.log("in");
+      });
+
+      input.addEventListener("blur", (e) => {
+        console.log("out");
+      });
+
+      input.addEventListener("keyup", (e) => {
+        console.log(input.value);
+      });
+    </script>
+  </body>
+</html>

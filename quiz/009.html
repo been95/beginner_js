@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="grand">
+      <h2>ID</h2>
+      <div class="apple">APPLE</div>
+      <div class="mango">
+        <input type="text" class="input" />
+      </div>
+      <div class="berry">Berry</div>
+    </div>
+    <hr />
+    <div class="grand">
+      <h2>PW</h2>
+      <div class="apple">APPLE</div>
+      <div class="mango">
+        <input type="password" class="password" />
+      </div>
+      <div class="berry">Berry</div>
+    </div>
+
+    <script>
+      const mango = document.querySelector(".mango");
+      let input = mango.querySelector(".input");
+      let apple = mango.previousElementSibling;
+      let berry = mango.nextElementSibling;
+
+      let pw = document.querySelector(".password");
+      let newBerry = input.parentElement.nextElementSibling;
+      console.log(newBerry);
+
+      const checkValue = (el, msg) => {
+        let target = el;
+        let msgBox = target.parentElement.nextElementSibling;
+        msgBox.innerHTML = msg;
+      };
+
+      input.addEventListener("blur", (e) => {
+        checkValue(e.currentTarget, "PASSED");
+      });
+      pw.addEventListener("blur", (e) => {
+        checkValue(e.currentTarget, "PASSED");
+      });
+
+      /*
+
+      input.addEventListener("blur", (e) => {
+        let target = e.currentTarget;
+        let msgBox = target.parentElement.nextElementSibling;
+        let text = "PASSED";
+
+        msgBox.innerHTML = text;
+      });
+			
+      pw.addEventListener("blur", (e) => {
+        let target = e.currentTarget;
+        let msgBox = target.parentElement.nextElementSibling;
+        let text = "PASSED";
+
+        msgBox.innerHTML = text;
+      });
+
+
+			*/
+    </script>
+  </body>
+</html>
