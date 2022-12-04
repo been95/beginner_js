@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="comment" placedholer="Input comment" />
+    <button type="button" class="createLi">New Item</button>
+    <hr />
+    <h1>Comments <span class="count">0</span></h1>
+    <ul id="color"></ul>
+    <script>
+      const ul = document.getElementById("color");
+      const button = document.querySelector(".createLi");
+      const input = document.querySelector(".comment");
+      const count = document.querySelector(".count");
+
+      const countUpdate = () => {
+        const items = document.querySelectorAll("#color li");
+        count.innerHTML = items.length;
+      };
+
+      const createItem = (msg) => {
+        const li = document.createElement("li");
+        const del = document.createElement("button");
+        ul.appendChild(li);
+        li.innerHTML = msg;
+        del.innerHTML = "DELETE";
+        li.appendChild(del);
+
+        countUpdate(0);
+      };
+
+      button.addEventListener("click", (e) => {
+        createItem(input.value);
+      });
+
+      const sum = (a, b) => {
+        console.log(a + b);
+      };
+
+      sum(1, 2);
+
+      const minus = (a, b) => {
+        console.log(a - b);
+      };
+      minus(5, 3);
+    </script>
+  </body>
+</html>

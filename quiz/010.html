@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="color">
+      <li id="red">Red</li>
+      <li id="green">green</li>
+      <li id="blue">blue</li>
+    </ul>
+
+    <script>
+      const ul = document.getElementById("color");
+      const red = document.getElementById("red");
+      const green = document.getElementById("green");
+      const blue = document.getElementById("blue");
+
+      blue.innerHTML = "SKy blue";
+      green.textContent = "Olive";
+      red.innerText = "Dark Red";
+
+      const me = red.firstChild;
+      console.log(me);
+      console.log(me.nodeName, me.nodeType, me.nodeValue);
+
+      console.log(ul.nodeName, ul.nodeType, ul.nodeValue);
+    </script>
+  </body>
+</html>
