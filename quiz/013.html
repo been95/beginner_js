@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todolist</title>
+  </head>
+  <body>
+    <h1>todolist</h1>
+    <input type="text" class="newItem" placeholder="할일을 입력하시오" />
+    <button type="button" class="addItem">등록</button>
+    <ul class="todolist">
+      <!--
+      <li>운동하기 <button type="button" class="cancellation">X</button></li>
+			-->
+    </ul>
+  </body>
+  <script>
+    const todoList = (e) => {
+      const input = document.querySelector(".newItem");
+      if (!input) {
+        return false;
+      }
+
+      const btn = document.querySelector(".addItem");
+      const todolist = document.querySelector(".todolist");
+      const cancellation = document.querySelector(".cancellation");
+
+      const addList = (e) => {
+        let todo = input.value;
+        if (!todo) {
+          alert("내용을 입력하세요!");
+          return false;
+        }
+
+        let list = document.createElement("li");
+        let cancellationbtn = document.createElement("button");
+        list.innerHTML = todo;
+        cancellationbtn.innerHTML = "X";
+        todolist.appendChild(list);
+        list.appendChild(cancellationbtn);
+        input.value = "";
+      };
+
+      btn.addEventListener("click", addList);
+
+      todolist.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target.tagName === "BUTTON") {
+          target.parentElement.remove();
+        }
+      });
+    };
+    todoList();
+  </script>
+</html>

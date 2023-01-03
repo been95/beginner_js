@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login">
+      <input required placeholder="Input name" type="text" />
+      <button type="submit">Login</button>
+    </form>
+
+    <button type="button" class="del">LOG OUT</button>
+    <h1 class="msg"></h1>
+
+    <script>
+      const form = document.querySelector("#login");
+      const input = form.querySelector("input");
+      const del = document.querySelector(".del");
+      const msg = document.querySelector(".msg");
+
+      const USERNAME_KEY = "username";
+      const savedName = localStorage.getItem(USERNAME_KEY);
+
+      const sayHello = (name) => {
+        msg.innerText = `Welcome, ${name}.`;
+      };
+
+      const init = () => {
+        if (savedName) {
+          sayHello(savedName);
+          form.classList.add("hide");
+        } else {
+          sayHello("Guest");
+          form.classList.remove("hide");
+        }
+      };
+
+      init();
+
+      const loginCheck = (e) => {
+        e.preventDefault();
+        const name = input.value;
+        localStorage.setItem(USERNAME_KEY, name);
+
+        form.classList.add("hide");
+        sayHello(name);
+      };
+
+      const deleteName = (e) => {
+        localStorage.removeItem(USERNAME_KEY);
+        window.location.reload();
+      };
+
+      form.addEventListener("submit", loginCheck);
+      del.addEventListener("click", deleteName);
+    </script>
+  </body>
+</html>

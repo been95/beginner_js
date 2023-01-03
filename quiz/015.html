@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        display: inline;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    마지막에 입력한 키값 :
+    <p></p>
+    <hr />
+    <input type="text" />
+    <button type="button" class="btn1">등록</button>
+    <button type="button" class="btn2">지우기</button>
+  </body>
+  <script>
+    /*
+		localStorage.setItem('key','value');
+		localStorage.getItem('key');
+		localStorage.removeItem('key')
+		*/
+    const input = document.querySelector("input");
+    const but1 = document.querySelector(".btn1");
+    const but2 = document.querySelector(".btn2");
+    const p = document.querySelector("p");
+
+    let msg = localStorage.getItem("name");
+    if (!msg) {
+      p.innerText = "No name";
+    } else {
+      p.innerText = msg;
+    }
+
+    input.addEventListener("keyup", (e) => {});
+
+    but1.addEventListener("click", (e) => {
+      localStorage.setItem("name", input.value);
+    });
+    but2.addEventListener("click", (e) => {
+      localStorage.removeItem("name");
+    });
+  </script>
+</html>
