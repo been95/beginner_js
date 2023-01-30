@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>버튼클릭식 입력값 나오기</title>
     <link rel="stylesheet" href="./reset.css" />
   </head>
   <body>
@@ -19,7 +19,7 @@
       const input = document.querySelector(".input");
       const result = document.querySelector(".result");
       const button = document.querySelector(".button");
-      
+
       /*
       input.addEventListener("keyup", function (e) {
         result.innerHTML = e.target.value;
@@ -31,7 +31,7 @@
 			입력한 값을 포함한 '엘아이'태그가 추가된다.
 			*/
       button.addEventListener("click", function (e) {
-        let todo =document.createElement('li');
+        let todo = document.createElement("li");
         todo.innerHTML = input.value;
         result.appendChild(todo);
       });
