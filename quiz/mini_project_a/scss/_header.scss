@@ -1,12 +1,23 @@
 .header_wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1440px;
-  height: 70px;
-  background-color: #fff;
+  color: #fff;
+  background-color: transparent;
+  transition: background-color 0.4s;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    width: 100%;
+    max-width: 1440px;
+    height: 70px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
   h1 {
     background-image: url($url + "logo.png");
     background-repeat: no-repeat;
@@ -15,24 +26,19 @@
     width: 55px;
     height: 35px;
     span {
-      clip: rect(0, 0, 0, 0);
-      position: absolute;
-      overflow: hidden;
+      @include blind;
     }
   }
   ul {
+    font-size: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 20px;
-    li a {
-      padding: 0 8px 0 0;
-      font-size: 12px;
-    }
+    column-gap: 30px;
   }
-  .fixed {
+
+  &.fixed {
     position: fixed;
     background: #313131;
-    color: #fff;
   }
 }

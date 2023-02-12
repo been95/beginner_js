@@ -9,73 +9,86 @@
   </head>
   <body>
     <header class="header_wrap">
-      <h1>
-        <a href="/">
-          <span>LEEJEY</span>
-        </a>
-      </h1>
-      <nav class="gnb">
-        <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">PROFILE</a></li>
-          <li><a href="#">GALLERY</a></li>
-          <li><a href="#">SKILLS</a></li>
-          <li><a href="#">CONTACT</a></li>
-        </ul>
-      </nav>
+      <div class="inner">
+        <h1>
+          <a href="/">
+            <span>LEEJEY</span>
+          </a>
+        </h1>
+        <nav class="gnb">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PROFILE</a></li>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">SKILLS</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <section class="home">
       <img src="img/main.png" alt="main img" />
     </section>
     <section class="Profile">
-      <img src="img/profile_1.jpg" alt="프로필 사진" />
+      <div class="inner">
+        <figure class="big">
+          <figcaption class="blind">Select Profile Image</figcaption>
+          <img src="img/profile_1.jpg" alt="프로필 사진" />
+        </figure>
 
-      <article>
-        <h2>LEEJEY</h2>
+        <article class="info">
+          <div class="title">
+            <h2>LEEJEY</h2>
+            <strong>리제이</strong><time>1982-06-12</time>
+          </div>
 
-        <dl>
-          <dt>리제이</dt>
-          <dd>1982-06-12</dd>
-        </dl>
-        <dl>
-          <dt>혈액형</dt>
-          <dd>b형</dd>
-          <dt>MBTI</dt>
-          <dd>INFJ</dd>
-          <dt>Like</dt>
-          <dd>All colors</dd>
-          <dt>Unlike</dt>
-          <dd>Watch Drawings</dd>
-          <dt>Favorite</dt>
-          <dd>Watch Drawings</dd>
-        </dl>
+          <dl class="base">
+            <dt>혈액형</dt>
+            <dd>b형</dd>
+            <dt>MBTI</dt>
+            <dd>INFJ</dd>
+            <dt>Like</dt>
+            <dd>All colors</dd>
+            <dt>Unlike</dt>
+            <dd>Watch Drawings</dd>
+            <dt>Favorite</dt>
+            <dd>Watch Drawings</dd>
+          </dl>
 
-        <dl>
-          <dt>Github</dt>
-          <dd>blackcrown.ejey@gmail.com</dd>
-          <dt>E-mail</dt>
-          <dd>blackcrown.ejey@gmail.com</dd>
-          <dt>Site</dt>
-          <dd>www.blackcrown.io</dd>
-        </dl>
+          <dl class="contact">
+            <dt>Github</dt>
+            <dd>blackcrown.ejey@gmail.com</dd>
+            <dt>E-mail</dt>
+            <dd>blackcrown.ejey@gmail.com</dd>
+            <dt>Site</dt>
+            <dd>www.blackcrown.io</dd>
+          </dl>
 
-        <ul class="">
-          <li>
-            <a href="#"><img src="./img/profile_2.jpg" alt="이미지" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="./img/profile_3.jpg" alt="이미지" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="./img/profile_4.jpg" alt="이미지" /></a>
-          </li>
-        </ul>
-      </article>
+          <ul class="photos">
+            <li>
+              <a href="#"><img src="./img/profile_2.jpg" alt="이미지" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="./img/profile_3.jpg" alt="이미지" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="./img/profile_4.jpg" alt="이미지" /></a>
+            </li>
+          </ul>
+        </article>
+      </div>
     </section>
     <section class="gallery"></section>
     <section class="skils"></section>
     <section class="contact"></section>
     <footer></footer>
+
+    <script>
+      const header = document.querySelector(".header_wrap");
+      header.addEventListener("click", (e) => {
+        e.currentTarget.classList.toggle("fixed");
+      });
+    </script>
   </body>
 </html>
