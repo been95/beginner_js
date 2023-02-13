@@ -1,1 +1,43 @@
-
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  .gallery_grid {
+    overflow: hidden;
+    position: relative;
+    .thumbnail {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 15px;
+      transition: opacity 0.2s;
+    }
+    dl {
+      position: absolute;
+      left: 0px;
+      bottom: -100px;
+      width: 100%;
+      color: #fff;
+      transition: 0.4s 0.1s;
+      font-weight: bold;
+      padding-left: 20px;
+      dt {
+        margin-bottom: 2px;
+        font-size: 22px;
+      }
+      dd {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0;
+      }
+    }
+    .gallery_grid:hover .thumbnail {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
