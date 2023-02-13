@@ -222,8 +222,12 @@
 
     <script>
       const header = document.querySelector(".header_wrap");
-      header.addEventListener("click", (e) => {
-        e.currentTarget.classList.toggle("fixed");
+      header.addEventListener("scroll", (e) => {
+        if (window.pageYOffset > 50) {
+          herder.classList.add("fixed");
+        } else {
+          herder.classList.remove("fixed");
+        }
       });
     </script>
   </body>

@@ -36,7 +36,7 @@
         margin: 0;
       }
     }
-    .gallery_grid:hover .thumbnail {
+    &:hover .thumbnail {
       background-color: rgba(0, 0, 0, 0.5);
     }
   }
