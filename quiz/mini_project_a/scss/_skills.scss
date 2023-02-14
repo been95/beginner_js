@@ -1,0 +1,26 @@
+.skils {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inner {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    h2 {
+      font-size: 64px;
+    }
+    img {
+      width: 48px;
+      height: 76px;
+    }
+    .skill-bar {
+      display: block;
+      border-radius: 4px;
+      width: 783px;
+      height: 23px;
+      background-color: aquamarine;
+    }
+  }
+}
