@@ -1,0 +1,17 @@
+.skils {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    .skill-bar {
+      background-color: aqua;
+      display: block;
+      width: 500px;
+      height: 30px;
+    }
+  }
+}
